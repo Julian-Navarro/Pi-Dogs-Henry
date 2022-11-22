@@ -1,0 +1,22 @@
+.divCard {
+    padding: 10px;
+}
+.dogCard {
+    background: linear-gradient(178deg, #08080894 5%, #b5f0fc 50%, #0c0c0ca2 95%);
+    /* background-color: rgba(0, 255, 255, 0.262); */
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 370px;
+    height: 425px;
+    /* display: flex; */
+    flex-wrap: wrap;
+    
+}
+.card {
+    padding: 10px;
+    display: flex;
+    justify-content: row;
+}
+.dogCard img {
+    padding: 10px;
+}

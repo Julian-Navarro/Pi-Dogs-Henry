@@ -1,0 +1,44 @@
+.nav {
+    /* background-color: rgba(127, 255, 212, 0.365); */
+    display: flex;
+    justify-content: space-evenly;
+    width: 1500px;
+    position: relative;
+    left: 210px;
+}
+.paginate {
+    /* background-color: rgba(148, 39, 39, 0.509); */
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    left: 50px;
+    /* align-content: center; */
+
+}
+.paginate button {
+    border: 2px solid black;
+    border-radius: 16px;
+    background-color: rgba(251, 63, 63, 0.515);
+    width: 30px;
+    height: 30px;
+    /* justify-content: center;
+    align-content:center ; */
+    
+}
+.paginate :hover{
+    background-color: rgba(155, 0, 0, 0.623);
+}
+.button {
+    border: 2px solid black;
+    width: max-content;
+    height: 30px;
+    position: relative;
+    top: 16px;
+    background-color: rgba(251, 63, 63, 0.515);
+    border-radius: 10px;
+}
+
+.divButton :hover{
+        background-color: rgba(155, 0, 0, 0.623)
+}
