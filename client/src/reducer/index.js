@@ -5,6 +5,7 @@ const initialState = {
   temps: [],
   tempsToFilter: [],
   dogDetail: [],
+  defaultDogs: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -14,11 +15,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         dogs: action.payload,
         allDogs: action.payload,
+        defaultDogs: action.payload,
       };
     case "REFRESH_DOGS":
       return {
         ...state,
         dogs: state.allDogs,
+        defaultDogs: state.allDogs,
       };
     case "FILTER_DB_DOGS":
       return {
@@ -26,11 +29,17 @@ const rootReducer = (state = initialState, action) => {
         dogs: state.allDogs.filter((dog) =>
           validator.isUUID(dog.id.toString())
         ),
+        defaultDogs: state.allDogs.filter((dog) =>
+          validator.isUUID(dog.id.toString())
+        ),
       };
     case "FILTER_API_DOGS":
       return {
         ...state,
         dogs: state.allDogs.filter(
+          (dog) => !validator.isUUID(dog.id.toString())
+        ),
+        defaultDogs: state.allDogs.filter(
           (dog) => !validator.isUUID(dog.id.toString())
         ),
       };
@@ -127,6 +136,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: action.payload,
+        defaultDogs: action.payload,
       };
     case "GET_DETAIL":
       return {
@@ -142,6 +152,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         tempsToFilter: action.payload,
+      };
+    case "DEFAULT_WEIGHT":
+      return {
+        ...state,
+        dogs: state.defaultDogs,
+      };
+    case "DEFAULT_ORDER_ALF":
+      return {
+        ...state,
+        dogs: state.defaultDogs,
       };
     default:
       return state;

@@ -37,7 +37,7 @@ export function orderWeight(ascOrDesc) {
   return async function (dispatch) {
     if (ascOrDesc === "Default") {
       return dispatch({
-        type: "",
+        type: "DEFAULT_WEIGHT",
       });
     }
     if (ascOrDesc === "ASC") {
@@ -54,6 +54,11 @@ export function orderWeight(ascOrDesc) {
 
 export function orderAlf(ascOrDesc) {
   return async function (dispatch) {
+    if (ascOrDesc === "Default") {
+      return dispatch({
+        type: "DEFAULT_ORDER_ALF",
+      });
+    }
     if (ascOrDesc === "ASC") {
       return dispatch({
         type: "ORDER_ALF_ASC",

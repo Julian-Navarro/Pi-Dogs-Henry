@@ -63,6 +63,7 @@ function handleDelete(e) {
                     }
                 </select>
                 <select name="" id="" onChange={(e)=> {dispatch(orderAlf(e.target.value)); setCurrentPage(1)}}>
+                    <option value="Default">A-Z Default</option>
                     <option value="ASC">A-Z ++</option>
                     <option value="DESC">A-Z --</option>
                 </select>

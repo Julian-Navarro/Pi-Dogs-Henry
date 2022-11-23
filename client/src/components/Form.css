@@ -1,21 +1,26 @@
 .formContainer {
-    background-color: rgb(84, 151, 209);
     display: flex;
     flex-direction: row;
     width: 383px;
     height: 46px;
-    border: 1px solid rgb(0, 1, 80);
-    border-radius: 6px;
+    border: 0px solid rgb(0, 1, 80);
     align-items: center;
-    
 }
 .formContainer label {
     color: rgba(4, 4, 4, 0.867);
     font-size: 26px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(45deg, rgba(128, 128, 128, 0) 15%, rgba(84, 84, 236, 0.538) 50%, rgba(128, 128, 128, 0) 85%);
+    width: 165px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+
 }
 .formContainer input {
-    background-color: rgba(208, 208, 208, 0.588);
+    background-color: rgba(231, 231, 231, 0.588);
     width: 200px;
     height: 30px;
     font-size: 22px;
@@ -27,46 +32,52 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background: linear-gradient(45deg, rgba(0, 128, 0, 0.541) 1%, rgba(26, 255, 0, 0.59) 70%, rgba(255, 255, 255, 0.812) 100%);
+    border-radius: 10px;
+    position: relative;
+    left: 150px;
+    width: 400px;
+    height: 600px;
+    padding: 10px;
 }
 .divContainer {
-    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
     width: 384px;
     height: 700px;
-    
-    /* background-color: bisque; */
 }
 .selectTemps {
-    background-color: rgba(167, 167, 167, 0.616);
+    background: linear-gradient(45deg, rgba(0, 92, 196, 0.55) 30%, rgba(0, 0, 0, 0.567) 100%);
     display: flex;
-    width: 10cm;
+    width: 8cm;
     font-size: 22px;
     border-radius: 5px;
     position: relative;
-    left: 430px;
-    bottom: 440px;
+    left: 1400px;
+    bottom: 700px;
+    color: rgba(26, 25, 25, 0.83);
+    font-size: 28px;
 }
 .tempsSelected {
-    /* background-color: rgba(57, 129, 129, 0.536); */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 850px;
     height: 8cm ;
     position: relative;
-    left: 420px;
-    bottom: 415px;
+    left: 620px;
+    bottom: 650px;
 }
+
 .divTemps {
     background: linear-gradient(90deg, #010a47bd 15%, #005a96af 45%,#009ad7ac 65%, #cdf5ffbc 100%, #eaf5ffc7 100%);
     height: 20px;
     width: 160px;
     border: none;
     border-radius: 8px;
-    padding: 5px;
+    padding: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +86,13 @@
     background-color: rgba(210, 1, 1, 0.484);
     border-radius: 3px;
     border: 1px solid black;
+    cursor: pointer;
 }
+
+.buttonTempHover :hover {
+background-color: rgba(127, 255, 212, 0.612);
+}
+
 .spanTemps {
     color: white;
     font-family: cursive;
@@ -86,6 +103,30 @@
     position: relative;
     right: 740px;
     bottom: 50px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.795) 20%, rgba(72, 255, 0, 0.76) 100%);
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    height: 40px;
+    font-size: 22px;
+    color: white;
+    font-family: cursive;
+}
+.buttonSubmit {
+   border-radius: 4px;
+    position: relative;
+    bottom: 710px;
+    left: 320px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.795) 20%, rgba(72, 255, 0, 0.76) 100%);
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    height: 40px;
+    font-size: 22px;
+    color: white;
+    font-family: cursive;  
 }
 .Link :hover {
     background-color: rgba(69, 242, 11, 0.803);

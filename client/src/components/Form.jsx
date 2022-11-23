@@ -78,7 +78,7 @@ const handleDeleteTemps = (e)=>{
 }
     return (
 <div className="container">
-        <h1>Create your dog!</h1>
+        <h1 className="title">Create your dog!</h1>
         
         <Link className="Link" to="/home"><button className="buttonBack">Back</button></Link>
 
@@ -96,7 +96,7 @@ const handleDeleteTemps = (e)=>{
             <div className="formContainer"><label>Life span max: </label><input onChange={(e)=>handleChange(e)} type="text" name="life_span_max" value={input.life_span_max} placeholder="14..." /> </div>
             <div className="formContainer"><label>Img: </label><input onChange={(e)=>handleChange(e)} type="text" name="img" value={input.img} placeholder="http://img.png..." /> </div>
          </div>
-            <button type="submit" >Submit</button>
+            <button className="buttonSubmit" type="submit" >Submit</button>
         </form>
        
         <select className="selectTemps" onChange={(e)=>handleTemps(e)}>
@@ -109,7 +109,7 @@ const handleDeleteTemps = (e)=>{
         </select>
         <div className="tempsSelected">
     {
-       input.allTemps.map((temp)=><div className="divTemps"> <span className="spanTemps">{temp}</span> <button value={temp} onClick={(e)=>{handleDeleteTemps(e)}}>x</button> </div>)
+       input.allTemps.map((temp)=><div className="divTemps"> <span className="spanTemps">{"♥"+temp}</span> <div className="buttonTempHover"><button  value={temp} onClick={(e)=>{handleDeleteTemps(e)}}>x</button></div> </div>)
     }
         </div>
     </div>

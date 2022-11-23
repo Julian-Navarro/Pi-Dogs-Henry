@@ -23,7 +23,7 @@ font-family: 'Franklin Gothic Medium',
 }
 
 .dogCard {
-    background: linear-gradient(178deg, #08080894 5%, #b5f0fc 50%, #0c0c0ca2 95%);
+    background: linear-gradient(178deg, #5c5c5c94 5%, #b5e3fca7 50%, #525252a2 95%);
     border: 2px solid black;
     border-radius: 8px;
     width: 370px;
