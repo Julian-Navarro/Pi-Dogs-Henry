@@ -37,7 +37,7 @@ export function orderWeight(ascOrDesc) {
   return async function (dispatch) {
     if (ascOrDesc === "Default") {
       return dispatch({
-        type: "REFRESH_DOGS",
+        type: "",
       });
     }
     if (ascOrDesc === "ASC") {
@@ -45,7 +45,6 @@ export function orderWeight(ascOrDesc) {
         type: "SORT_BY_MAX_VALUE_ASC",
       });
     } else {
-      console.log(ascOrDesc);
       return dispatch({
         type: "SORT_BY_MAX_VALUE_DESC",
       });
@@ -81,7 +80,6 @@ export function postDog(payload) {
   return async function (dispatch) {
     try {
       const response = await axios.post("http://localhost:3001/dogs", payload);
-      console.log(response);
       return response;
     } catch (error) {
       console.log(error);
@@ -109,13 +107,24 @@ export function filterTemps(arrayTemps) {
       let array = [];
       arrayTemps.forEach((t) => {
         json.data.forEach((el) => {
-          console.log(el);
           el.temps ? (el.temps.includes(t) ? array.push(el) : null) : null;
         });
       });
+      let finalArray = [];
+      array.forEach((el) => {
+        if (finalArray.length !== 0) {
+          let count = 0;
+          finalArray.forEach((dog) => {
+            if (dog.id == el.id) count++;
+          });
+          if (count == 0) finalArray.push(el);
+        } else {
+          finalArray.push(el);
+        }
+      });
       return dispatch({
         type: "FILTER_TEMP",
-        payload: array,
+        payload: finalArray,
       });
     } catch (error) {
       console.log(error);
@@ -126,11 +135,10 @@ export function filterTemps(arrayTemps) {
 export function getDetail(id) {
   return async function (dispatch) {
     try {
-      const json = await axios.get("http://localhost:3001/dogs");
-      const res = json.data.filter((d) => d.id.toString() === id);
+      const json = await axios.get(`http://localhost:3001/dogs/${id}`);
       return dispatch({
         type: "GET_DETAIL",
-        payload: res,
+        payload: json.data,
       });
     } catch (error) {
       console.log(error);
@@ -143,6 +151,15 @@ export function deleteTemp(e) {
     return dispatch({
       type: "DELETE_TEMP",
       payload: e.target.value,
+    });
+  };
+}
+
+export function resetTempsToFilter() {
+  return async function (dispatch) {
+    return dispatch({
+      type: "RESET_TEMPS_TO_FILTER",
+      payload: [],
     });
   };
 }

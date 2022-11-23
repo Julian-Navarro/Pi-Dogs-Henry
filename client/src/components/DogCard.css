@@ -1,22 +1,42 @@
 .divCard {
-    padding: 10px;
+    padding: 13px;
 }
+.linkButtons :hover {
+    background: linear-gradient(45deg, rgba(36, 36, 36, 0.562) 1%, rgba(255, 255, 255, 0.61) 80%, rgba(36, 36, 36, 0.562) 100%);
+    cursor: pointer;
+    border-radius: 16px;
+    font-family: MV Boli;
+}
+.linkButtons {
+    padding: px;
+}
+.divCard button{
+background: none;
+border: none;
+font-size: 30px;
+align-items: center;
+justify-content: center;
+font-family: 'Franklin Gothic Medium',
+    'Arial Narrow',
+    Arial,
+    sans-serif;
+}
+
 .dogCard {
     background: linear-gradient(178deg, #08080894 5%, #b5f0fc 50%, #0c0c0ca2 95%);
-    /* background-color: rgba(0, 255, 255, 0.262); */
     border: 2px solid black;
     border-radius: 8px;
     width: 370px;
     height: 425px;
-    /* display: flex; */
     flex-wrap: wrap;
     
 }
 .card {
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: row;
 }
 .dogCard img {
     padding: 10px;
+    border-radius: 20px;
 }

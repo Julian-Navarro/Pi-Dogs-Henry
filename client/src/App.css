@@ -15,6 +15,18 @@
     align-content: center;
 
 }
+.title {
+  background: linear-gradient(0deg, rgba(90, 90, 90, 0.774) 0%, rgba(2, 76, 173, 0.658) 25%, rgba(90, 90, 90, 0.685) 100%);
+  width: 550px;
+  height: 50px;
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 670px;
+
+}
 
 .App-logo {
   height: 40vmin;

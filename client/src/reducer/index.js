@@ -1,4 +1,3 @@
-//import { GET_DOGS } from "../types";
 const validator = require("validator");
 const initialState = {
   dogs: [],
@@ -38,7 +37,7 @@ const rootReducer = (state = initialState, action) => {
     case "SORT_BY_MAX_VALUE_ASC":
       return {
         ...state,
-        dogs: state.allDogs
+        dogs: state.dogs
           .map((e) => e)
           .sort((a, b) => {
             if (a.weight_max === "Not found") {
@@ -61,7 +60,7 @@ const rootReducer = (state = initialState, action) => {
     case "SORT_BY_MAX_VALUE_DESC":
       return {
         ...state,
-        dogs: state.allDogs
+        dogs: state.dogs
           .map((e) => e)
           .sort((a, b) => {
             if (a.weight_max === "Not found") {
@@ -90,7 +89,7 @@ const rootReducer = (state = initialState, action) => {
     case "ORDER_ALF_ASC":
       return {
         ...state,
-        dogs: state.allDogs
+        dogs: state.dogs
           .map((e) => e)
           .sort((a, b) => {
             if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -103,7 +102,7 @@ const rootReducer = (state = initialState, action) => {
     case "ORDER_ALF_DESC":
       return {
         ...state,
-        dogs: state.allDogs
+        dogs: state.dogs
           .map((e) => e)
           .sort((a, b) => {
             a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
@@ -128,7 +127,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: action.payload,
-        // filtertemps: [...state.filtertemps, action.payload],
       };
     case "GET_DETAIL":
       return {
@@ -139,6 +137,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         tempsToFilter: state.tempsToFilter.filter((t) => t !== action.payload),
+      };
+    case "RESET_TEMPS_TO_FILTER":
+      return {
+        ...state,
+        tempsToFilter: action.payload,
       };
     default:
       return state;

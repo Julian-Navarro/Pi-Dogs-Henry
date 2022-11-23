@@ -1,3 +1,25 @@
-.divContainer button {
-cursor: pointer;
+.buttonIn {
+     background: linear-gradient(45deg, rgba(0, 0, 0, 0.795) 20%,rgba(255, 255, 0, 0.76) 100% ); 
+   cursor: pointer; 
+   border-radius: 10px;
+   border: none;
+   width: 200px;
+   height: 40px;
+   font-size: 22px;
+   position: relative;
+   top: 400px;
+   left: 100px;
+   color: white;
+   font-family: cursive;
+
+}
+.linkButton :hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(231, 231, 231);
+}
+
+.description {
+    position: relative;
+    bottom: 350px;
+    left: 100px;
 }

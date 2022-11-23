@@ -31,20 +31,21 @@ export default function Form() {
             ...input,
             [e.target.name]: e.target.value
         })
-        console.log(input);
     }
 
     const handleTemps = (e)=>{
-        !input.allTemps.includes(e.target.value)
+    const defaultValue = "Select Temperaments";
+
+    e.target.value !== defaultValue && !input.allTemps.includes(e.target.value)
     ?setInput({
          ...input,
         allTemps: [...input.allTemps, e.target.value]
     })
     : null
+    e.target.value = defaultValue
     };
     
     useEffect(()=>{
-       console.log(input);
 
     }, [input]);
 
@@ -99,9 +100,10 @@ const handleDeleteTemps = (e)=>{
         </form>
        
         <select className="selectTemps" onChange={(e)=>handleTemps(e)}>
+            <option value="Select Temperaments" key="selectTemps">Select Temperaments</option>
             {
                 temps.map((t)=>(
-                    <option value={t.name}>{t.name}</option>
+                    <option value={t.name} key={t.id}>{t.name}</option>
                 ))
             }
         </select>

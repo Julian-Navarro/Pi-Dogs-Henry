@@ -31,10 +31,8 @@ export default function Home(){
  
     return (
         <div>
-            <h1>Componente Home</h1>
             <Link className="linkCreate" to="/dogsCreate">Create Dog</Link>
             <Navbar setCurrentPage={setCurrentPage}/>
-            <h1>DOGS!</h1>
             <Paginate dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginate={paginate} currentPage={currentPage}/>
             <DogCards dogs={currentDogs}/>
         </div>

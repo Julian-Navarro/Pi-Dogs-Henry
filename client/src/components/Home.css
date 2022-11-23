@@ -2,4 +2,14 @@
     font-size: 30px;
     color: rgb(8, 8, 8);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background:linear-gradient(45deg, rgba(0, 255, 255, 0.068) 20%, rgba(0, 255, 221, 0.356) 50%, rgba(0, 255, 221, 0.555) 70%,
+        rgba(160, 255, 244, 0.829) 100%) ;
+    border-radius: 25px;
+    width: max-content;
+    height: max-content;
+    padding: 2px;
+    font-size: 56px; 
+    position: relative;
+    right: 600px;
+    font-family: MV Boli;
 }

@@ -26,9 +26,15 @@ const getApiInfo = async () => {
   let dogsApiInfo = resultApi.data.map((el) => {
     let weight = el.weight.metric.split(" - ");
     let height = el.height.metric.split(" - ");
-    let life_span = el.life_span.split(" - ");
-    let life_span_max = el.life_span[1].split("y");
-
+    let life_span_min;
+    let life_span_max;
+    if (el.life_span.includes("-")) {
+      let aux = el.life_span.split(" - ");
+      life_span_min = aux[0];
+      life_span_max = aux[1].split(" ")[0];
+    } else {
+      life_span_min = el.life_span.split(" ")[0];
+    }
     return {
       id: el.id,
       name: el.name,
@@ -37,8 +43,8 @@ const getApiInfo = async () => {
       weight_max: weight[1] !== undefined ? weight[1] : "Not found",
       height_min: height[0] !== "NaN" ? height[0] : "Not found",
       height_max: height[1] !== undefined ? height[1] : "Not found",
-      life_span_min: life_span[0],
-      life_span_max: life_span_max[0],
+      life_span_min: life_span_min,
+      life_span_max: life_span_max,
       temps: el.temperament,
       origin: el.origin,
     };
@@ -74,11 +80,10 @@ router.get("/dogs/:idRace", async (req, res) => {
     const isUUIDv4 = await validator.isUUID(idRace);
     if (isUUIDv4) {
       const dbRace = await Race.findByPk(idRace);
-      res.status(200).send(dbRace);
+      res.status(200).send([dbRace.dataValues]);
     } else {
       const dogsApiInfo = await getApiInfo();
       const apiRace = dogsApiInfo.filter((el) => {
-        console.log(el);
         return el.id === parseInt(idRace);
       });
       res.status(200).send(apiRace);
@@ -117,7 +122,6 @@ router.post("/dogs", async (req, res) => {
         temps,
         origin,
       });
-      console.log(newRace);
       res.status(200).send(newRace);
     }
   } catch (error) {
