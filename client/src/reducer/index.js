@@ -6,6 +6,7 @@ const initialState = {
   tempsToFilter: [],
   dogDetail: [],
   defaultDogs: [],
+  loading: false,
 };
 
 const rootReducer = (state = initialState, action) => {

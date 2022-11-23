@@ -9,13 +9,15 @@ const dispatch = useDispatch();
 
 useEffect(()=>{
     dispatch(getDetail(props.match.params.id));
+    dispatch(loading())
 },[dispatch]);
 const myDog = useSelector((state)=> state.dogDetail);
-const history = useHistory()
+const history = useHistory();
 function handleButtonBack(e){
 e.preventDefault();
 history.push("/home");
 };
+
 
 return (
      <div className="container">
@@ -41,5 +43,5 @@ return (
             }
         </div>
     </div>
-    )
+    ) 
 }; 

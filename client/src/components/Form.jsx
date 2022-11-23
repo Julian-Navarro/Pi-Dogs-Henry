@@ -8,6 +8,7 @@ export default function Form() {
     const dispatch = useDispatch();
     const history = useHistory()
     const temps = useSelector((state)=>state.temps);
+    // const [errors, setErros] = useState({});
     const [ input, setInput ] = useState({
         race: "",
         weight_min: "",
@@ -25,6 +26,33 @@ export default function Form() {
         dispatch(getTemps())
 
     }, [dispatch]);
+
+    
+    // function validate(input){
+    // let errors = {};
+//     if(!input.name){
+//       errors.name = "Dog race is required"
+//     } else if(!input.duration || input.duration === 0){
+//       errors.weight_min = "weight min is required"
+//     } else if(!input.season){
+//       errors.season = "Season of the required activity"
+//     } else if(!input.difficulty){
+//       errors.difficulty = "Degree of difficulty required"
+//     }
+//     return errors;
+// }
+
+  function handleChange(e){
+    setInput({
+      ...input,
+      [e.target.name] : e.target.value
+    })
+    setErrors(validate({
+      ...input,
+      [e.target.name] : e.target.value
+    }))
+
+  }
 
     const handleChange = (e)=>{
         setInput({

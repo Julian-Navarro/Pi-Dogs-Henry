@@ -1,10 +1,18 @@
 import axios from "axios";
-//import { GET_DOGS } from "../types";
 const GET_DOGS = "GET_DOGS";
+
+export function loading() {
+  return async function (dispatch) {
+    return dispatch({
+      type: "LOADING",
+    });
+  };
+}
 
 export function getDogs() {
   return async function (dispatch) {
     var json = await axios.get("http://localhost:3001/dogs");
+    dispatch(loading());
     return dispatch({
       type: "GET_DOGS",
       payload: json.data,
